@@ -18,18 +18,18 @@
                 extend: {
                     colors: {
                         nova: {
-                            50: '#f6f6f8',
-                            100: '#ececf0',
-                            200: '#d5d6dd',
-                            300: '#b0b3c0',
-                            400: '#83889b',
-                            500: '#61667c',
-                            600: '#4b5064',
-                            700: '#3c4051',
-                            800: '#323543',
-                            900: '#1b1d24',
-                            950: '#0e0f13',
-                            accent: '#6366f1', // Electric Violet Accent
+                            50: '#f8f9fc',
+                            100: '#f1f3f9',
+                            200: '#e2e6f0',
+                            300: '#cbd2e2',
+                            400: '#9aa3be',
+                            500: '#6c779a',
+                            600: '#505a7d',
+                            700: '#3f4764',
+                            800: '#353b52',
+                            900: '#1e2230',
+                            950: '#0f1118',
+                            accent: '#6366f1',
                             accentHover: '#4f46e5',
                             cyan: '#06b6d4',
                         }
@@ -43,7 +43,6 @@
         }
     </script>
     <style>
-        /* Custom scrollbar and selection */
         ::selection {
             background-color: #6366f1;
             color: #ffffff;
@@ -52,46 +51,46 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f6f6f8;
+            background: #f8f9fc;
         }
         ::-webkit-scrollbar-thumb {
-            background: #d5d6dd;
+            background: #cbd2e2;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #b0b3c0;
+            background: #9aa3be;
         }
         
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
         
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.03); }
-        }
-        .animate-pulse-slow {
-            animation: pulse-slow 6s ease-in-out infinite;
-        }
-
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-10px); }
         }
         .animate-float {
-            animation: float 4s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .interactive-card {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .interactive-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.08);
         }
     </style>
 </head>
-<body class="bg-[#fafafa] text-[#1b1d24] font-sans antialiased selection:bg-nova-accent selection:text-white">
+<body class="bg-[#fafbff] text-[#1e2230] font-sans antialiased selection:bg-nova-accent selection:text-white">
 
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-[#ececf0]">
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-nova-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-12 h-12 rounded-full bg-white border border-[#ececf0] flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
-                    <img src="assets/nova-logo.jpg" alt="NOVA Engineering Labs" class="w-full h-full object-contain">
+                <div class="w-11 h-11 rounded-xl bg-white border border-nova-200 shadow-sm flex items-center justify-center overflow-hidden group-hover:scale-105 group-hover:border-nova-accent transition-all">
+                    <img src="assets/nova-logo.jpg" alt="NOVA Engineering Labs" class="w-full h-full object-contain" onerror="this.replaceWith(document.createElement('span')); this.parentElement.innerText='N';">
                 </div>
                 <div class="flex flex-col">
                     <span class="font-bold tracking-tight text-base">NOVA</span>
@@ -99,20 +98,20 @@
                 </div>
             </a>
 
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-nova-600">
-                <a href="#about" class="hover:text-nova-900 transition-colors">About</a>
-                <a href="#purpose" class="hover:text-nova-900 transition-colors">Purpose</a>
-                <a href="#engineering" class="hover:text-nova-900 transition-colors">Engineering</a>
-                <a href="#philosophy" class="hover:text-nova-900 transition-colors">Philosophy</a>
-                <a href="#organization" class="hover:text-nova-900 transition-colors">Organization</a>
-                <a href="#people" class="hover:text-nova-900 transition-colors">Team</a>
-                <a href="#culture" class="hover:text-nova-900 transition-colors">Culture</a>
-                <a href="#research" class="hover:text-nova-900 transition-colors">Research</a>
-                <a href="#roadmap" class="hover:text-nova-900 transition-colors">Roadmap</a>
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-nova-600">
+                <a href="#about" class="hover:text-nova-accent transition-colors">About</a>
+                <a href="#purpose" class="hover:text-nova-accent transition-colors">Purpose</a>
+                <a href="#engineering" class="hover:text-nova-accent transition-colors">Engineering</a>
+                <a href="#philosophy" class="hover:text-nova-accent transition-colors">Philosophy</a>
+                <a href="#organization" class="hover:text-nova-accent transition-colors">Organization</a>
+                <a href="#people" class="hover:text-nova-accent transition-colors">Team</a>
+                <a href="#culture" class="hover:text-nova-accent transition-colors">Culture</a>
+                <a href="#research" class="hover:text-nova-accent transition-colors">Research</a>
+                <a href="#roadmap" class="hover:text-nova-accent transition-colors">Roadmap</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#1b1d24] text-white text-xs font-semibold tracking-wider uppercase hover:bg-nova-accent transition-all shadow-sm">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#1e2230] text-white text-xs font-semibold tracking-wider uppercase hover:bg-nova-accent transition-all shadow-sm hover:shadow-nova-accent/20">
                     Connect With Nova
                 </a>
                 <button id="mobile-menu-btn" class="lg:hidden p-2 text-nova-800 hover:text-nova-accent focus:outline-none" aria-label="Toggle Menu">
@@ -124,14 +123,14 @@
         <div id="mobile-menu" class="fixed inset-0 bg-white z-50 flex flex-col px-6 py-8 lg:hidden transform translate-x-full transition-transform duration-300">
             <div class="flex items-center justify-between pb-6 border-b border-nova-100">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-[#1b1d24] text-white flex items-center justify-center font-mono font-bold text-base">N</div>
+                    <div class="w-8 h-8 rounded-lg bg-[#1e2230] text-white flex items-center justify-center font-mono font-bold text-base">N</div>
                     <span class="font-bold tracking-tight text-sm">NOVA Engineering Labs</span>
                 </div>
                 <button id="mobile-menu-close" class="p-2 text-nova-800 hover:text-nova-accent" aria-label="Close Menu">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
-            <nav class="flex flex-col gap-5 py-8 text-lg font-medium text-nova-800">
+            <nav class="flex flex-col gap-5 py-8 text-lg font-medium text-nova-800 overflow-y-auto">
                 <a href="#about" class="mobile-nav-link hover:text-nova-accent transition-colors">About</a>
                 <a href="#purpose" class="mobile-nav-link hover:text-nova-accent transition-colors">Purpose</a>
                 <a href="#engineering" class="mobile-nav-link hover:text-nova-accent transition-colors">Engineering Domains</a>
@@ -143,7 +142,7 @@
                 <a href="#roadmap" class="mobile-nav-link hover:text-nova-accent transition-colors">Future Roadmap</a>
             </nav>
             <div class="mt-auto pt-6 border-t border-nova-100">
-                <a href="#contact" class="mobile-nav-link w-full py-3 rounded-full bg-[#1b1d24] text-white text-center font-semibold text-sm tracking-wider uppercase block">
+                <a href="#contact" class="mobile-nav-link w-full py-3 rounded-full bg-[#1e2230] text-white text-center font-semibold text-sm tracking-wider uppercase block">
                     Connect With Nova
                 </a>
             </div>
@@ -151,12 +150,12 @@
     </header>
 
     <main class="pt-20">
-        <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 px-6 border-b border-nova-200">
-            <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#1b1d24_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 px-6 border-b border-nova-100 bg-gradient-to-b from-white via-[#fafbff] to-nova-50/50">
+            <div class="absolute inset-0 opacity-[0.025] pointer-events-none bg-[radial-gradient(#1e2230_1px,transparent_1px)] [background-size:32px_32px]"></div>
             
             <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                 <div class="lg:col-span-7 flex flex-col items-start text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nova-100/70 border border-nova-200 text-nova-700 font-mono text-xs tracking-wider uppercase mb-6">
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-nova-200 text-nova-700 font-mono text-xs tracking-wider uppercase mb-6 shadow-sm">
                         <span class="w-2 h-2 rounded-full bg-nova-accent animate-ping"></span>
                         Multidisciplinary Engineering Laboratory
                     </div>
@@ -171,54 +170,57 @@
                     </p>
                     
                     <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
-                        <a href="#about" class="px-8 py-4 rounded-full bg-[#1b1d24] text-white font-semibold text-sm tracking-wider uppercase hover:bg-nova-accent transition-all shadow-md flex items-center gap-2">
+                        <a href="#about" class="px-8 py-4 rounded-full bg-[#1e2230] text-white font-semibold text-sm tracking-wider uppercase hover:bg-nova-accent transition-all shadow-md hover:shadow-lg hover:shadow-nova-accent/25 flex items-center gap-2 group">
                             <span>Discover Nova</span>
-                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                            <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
                         </a>
-                        <a href="#people" class="px-8 py-4 rounded-full bg-white border border-nova-300 text-nova-900 font-semibold text-sm tracking-wider uppercase hover:border-nova-900 transition-all">
+                        <a href="#people" class="px-8 py-4 rounded-full bg-white border border-nova-200 text-nova-900 font-semibold text-sm tracking-wider uppercase hover:border-nova-900 transition-all shadow-sm">
                             Meet The Team
                         </a>
                     </div>
                 </div>
 
                 <div class="lg:col-span-5 relative flex items-center justify-center">
-                    <div class="w-full aspect-square max-w-[480px] rounded-3xl bg-white border border-nova-200 shadow-xl p-8 flex flex-col justify-between relative overflow-hidden animate-float">
-                        <div class="absolute inset-0 bg-gradient-to-br from-nova-50/50 via-transparent to-nova-accent/5 pointer-events-none"></div>
+                    <div class="w-full aspect-square max-w-[480px] rounded-3xl bg-white border border-nova-200/80 shadow-2xl p-8 flex flex-col justify-between relative overflow-hidden animate-float">
+                        <div class="absolute inset-0 bg-gradient-to-br from-nova-50/60 via-transparent to-nova-accent/5 pointer-events-none"></div>
                         
                         <div class="flex justify-between items-center z-10">
-                            <span class="font-mono text-xs text-nova-400">LAB SYSTEM v2.6</span>
-                            <span class="px-2.5 py-1 rounded-md bg-nova-100 text-nova-800 text-[10px] font-mono font-semibold">ACTIVE LAB</span>
+                            <span class="font-mono text-xs text-nova-400">LAB SYSTEM v2.8</span>
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-600 border border-emerald-100 text-[10px] font-mono font-semibold flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> ACTIVE LAB
+                            </span>
                         </div>
 
                         <div class="relative flex items-center justify-center my-auto z-10">
-                            <div class="w-28 h-28 rounded-2xl bg-[#1b1d24] text-white flex flex-col items-center justify-center shadow-lg relative z-20">
-                                <span class="font-mono font-bold text-xl tracking-widest">NOVA</span>
-                                <span class="text-[9px] font-mono text-nova-300 mt-0.5">LABS</span>
+                            <div class="w-32 h-32 rounded-2xl bg-gradient-to-br from-[#1e2230] to-nova-900 text-white flex flex-col items-center justify-center shadow-xl relative z-20 border border-nova-800">
+                                <span class="font-mono font-bold text-2xl tracking-widest">NOVA</span>
+                                <span class="text-[10px] font-mono text-nova-300 mt-0.5">LABS</span>
                             </div>
 
-                            <div class="absolute w-64 h-64 rounded-full border border-dashed border-nova-300 animate-spin" style="animation-duration: 40s;"></div>
+                            <div class="absolute w-64 h-64 rounded-full border border-dashed border-nova-300 animate-spin" style="animation-duration: 45s;"></div>
+                            <div class="absolute w-48 h-48 rounded-full border border-nova-200/60 animate-spin" style="animation-direction: reverse; animation-duration: 30s;"></div>
                             
-                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-sm z-20">
-                                AI & Agents
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-md z-20 flex items-center gap-1.5">
+                                <i data-lucide="cpu" class="w-3.5 h-3.5 text-nova-accent"></i> AI & Agents
                             </div>
-                            <div class="absolute bottom-2 -left-2 px-3 py-1.5 rounded-lg bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-sm z-20">
-                                Software
+                            <div class="absolute bottom-2 -left-2 px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-md z-20 flex items-center gap-1.5">
+                                <i data-lucide="code" class="w-3.5 h-3.5 text-nova-cyan"></i> Software
                             </div>
-                            <div class="absolute bottom-2 -right-2 px-3 py-1.5 rounded-lg bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-sm z-20">
-                                Electronics
+                            <div class="absolute bottom-2 -right-2 px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-md z-20 flex items-center gap-1.5">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> Electronics
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-nova-100 text-center z-10">
-                            <div class="p-2 rounded-lg bg-nova-50">
+                        <div class="grid grid-cols-3 gap-2.5 pt-4 border-t border-nova-100 text-center z-10">
+                            <div class="p-2.5 rounded-xl bg-nova-50/80 border border-nova-100">
                                 <span class="block text-[10px] text-nova-400 font-mono">DOMAINS</span>
-                                <span class="text-xs font-bold text-nova-900">06 Active</span>
+                                <span class="text-xs font-bold text-nova-900">05 Active</span>
                             </div>
-                            <div class="p-2 rounded-lg bg-nova-50">
+                            <div class="p-2.5 rounded-xl bg-nova-50/80 border border-nova-100">
                                 <span class="block text-[10px] text-nova-400 font-mono">PHILOSOPHY</span>
                                 <span class="text-xs font-bold text-nova-900">Systemic</span>
                             </div>
-                            <div class="p-2 rounded-lg bg-nova-50">
+                            <div class="p-2.5 rounded-xl bg-nova-50/80 border border-nova-100">
                                 <span class="block text-[10px] text-nova-400 font-mono">STANDARD</span>
                                 <span class="text-xs font-bold text-nova-900">Rigorous</span>
                             </div>
@@ -228,7 +230,7 @@
             </div>
         </section>
 
-        <section class="py-24 px-6 bg-white border-b border-nova-200">
+        <section class="py-24 px-6 bg-white border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">BRAND ARCHITECTURE</span>
@@ -238,26 +240,27 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
                     <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-                        <button onclick="setAcronym('N')" id="btn-N" class="acronym-btn p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white text-left transition-all group">
+                        <button onclick="setAcronym('N')" id="btn-N" class="acronym-btn p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white text-left transition-all group shadow-md">
                             <span class="block font-mono text-3xl font-bold mb-1">N</span>
                             <span class="text-xs font-medium tracking-wide text-nova-300">Next-Generation</span>
                         </button>
-                        <button onclick="setAcronym('O')" id="btn-O" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400">
+                        <button onclick="setAcronym('O')" id="btn-O" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400 interactive-card">
                             <span class="block font-mono text-3xl font-bold mb-1">O</span>
                             <span class="text-xs font-medium tracking-wide text-nova-500">Omniscient</span>
                         </button>
-                        <button onclick="setAcronym('V')" id="btn-V" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400">
+                        <button onclick="setAcronym('V')" id="btn-V" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400 interactive-card">
                             <span class="block font-mono text-3xl font-bold mb-1">V</span>
                             <span class="text-xs font-medium tracking-wide text-nova-500">Virtual</span>
                         </button>
-                        <button onclick="setAcronym('A')" id="btn-A" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400">
+                        <button onclick="setAcronym('A')" id="btn-A" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400 interactive-card">
                             <span class="block font-mono text-3xl font-bold mb-1">A</span>
                             <span class="text-xs font-medium tracking-wide text-nova-500">Assistant</span>
                         </button>
                     </div>
 
-                    <div class="lg:col-span-7 bg-nova-50 rounded-3xl p-8 sm:p-12 border border-nova-200 min-h-[320px] flex flex-col justify-center">
-                        <div id="acronym-content">
+                    <div class="lg:col-span-7 bg-nova-50/80 rounded-3xl p-8 sm:p-12 border border-nova-200 min-h-[320px] flex flex-col justify-center shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-nova-accent/5 rounded-bl-full pointer-events-none"></div>
+                        <div id="acronym-content" class="transition-all duration-300">
                             <span class="font-mono text-xs font-semibold tracking-wider text-nova-accent uppercase mb-3 block">Foundational Definition // 01</span>
                             <h3 id="acronym-title" class="text-2xl sm:text-3xl font-bold text-nova-950 mb-4">Next-Generation</h3>
                             <p id="acronym-desc" class="text-nova-700 text-lg leading-relaxed">
@@ -269,7 +272,7 @@
             </div>
         </section>
 
-        <section id="about" class="py-28 px-6 bg-nova-50/50 border-b border-nova-200">
+        <section id="about" class="py-28 px-6 bg-nova-50/50 border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                     <div class="lg:col-span-6">
@@ -299,24 +302,24 @@
                             <i data-lucide="cpu" class="w-5 h-5 text-nova-accent"></i>
                         </h3>
                         <div class="space-y-4">
-                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-400 transition-all cursor-pointer" onclick="setActiveDomainInfo('ai')">
+                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-accent hover:bg-white transition-all cursor-pointer interactive-card" onclick="setActiveDomainInfo('ai')">
                                 <div class="flex justify-between items-center mb-1">
                                     <span class="font-bold text-nova-900 text-sm">Artificial Intelligence & Agents</span>
-                                    <span class="text-xs font-mono text-nova-accent">Explore &rarr;</span>
+                                    <span class="text-xs font-mono text-nova-accent flex items-center gap-1">Explore &rarr;</span>
                                 </div>
                                 <p class="text-xs text-nova-600">Generative models, multi-agent frameworks, and autonomous learning systems.</p>
                             </div>
-                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-400 transition-all cursor-pointer" onclick="setActiveDomainInfo('software')">
+                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-accent hover:bg-white transition-all cursor-pointer interactive-card" onclick="setActiveDomainInfo('software')">
                                 <div class="flex justify-between items-center mb-1">
                                     <span class="font-bold text-nova-900 text-sm">Software & System Architecture</span>
-                                    <span class="text-xs font-mono text-nova-accent">Explore &rarr;</span>
+                                    <span class="text-xs font-mono text-nova-accent flex items-center gap-1">Explore &rarr;</span>
                                 </div>
                                 <p class="text-xs text-nova-600">Scalable backend infrastructure, modern frontend engineering, and APIs.</p>
                             </div>
-                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-400 transition-all cursor-pointer" onclick="setActiveDomainInfo('electronics')">
+                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-accent hover:bg-white transition-all cursor-pointer interactive-card" onclick="setActiveDomainInfo('electronics')">
                                 <div class="flex justify-between items-center mb-1">
                                     <span class="font-bold text-nova-900 text-sm">Electronics & Embedded Systems</span>
-                                    <span class="text-xs font-mono text-nova-accent">Explore &rarr;</span>
+                                    <span class="text-xs font-mono text-nova-accent flex items-center gap-1">Explore &rarr;</span>
                                 </div>
                                 <p class="text-xs text-nova-600">Hardware integration, microcontrollers, embedded computing, and sensors.</p>
                             </div>
@@ -326,7 +329,7 @@
             </div>
         </section>
 
-        <section id="purpose" class="py-28 px-6 bg-white border-b border-nova-200">
+        <section id="purpose" class="py-28 px-6 bg-white border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">02 / PURPOSE</span>
@@ -335,9 +338,9 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200 hover:border-nova-900 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card flex flex-col justify-between group">
                         <div>
-                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors shadow-sm">
                                 01
                             </div>
                             <h3 class="text-xl font-bold text-nova-950 mb-3">EXPLORE</h3>
@@ -345,14 +348,14 @@
                                 Investigate emerging technologies, ideas, architectures, and possibilities without being constrained by conventional dogma.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-nova-200 text-xs font-mono text-nova-500">
+                        <div class="pt-4 border-t border-nova-200/60 text-xs font-mono text-nova-500">
                             Research & Ideation Phase
                         </div>
                     </div>
 
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200 hover:border-nova-900 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card flex flex-col justify-between group">
                         <div>
-                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors shadow-sm">
                                 02
                             </div>
                             <h3 class="text-xl font-bold text-nova-950 mb-3">ENGINEER</h3>
@@ -360,14 +363,14 @@
                                 Transform concepts into structured, reliable, and scalable systems through rigorous architecture, modular design, and disciplined coding.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-nova-200 text-xs font-mono text-nova-500">
+                        <div class="pt-4 border-t border-nova-200/60 text-xs font-mono text-nova-500">
                             Implementation & Build
                         </div>
                     </div>
 
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200 hover:border-nova-900 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card flex flex-col justify-between group">
                         <div>
-                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors shadow-sm">
                                 03
                             </div>
                             <h3 class="text-xl font-bold text-nova-950 mb-3">ADVANCE</h3>
@@ -375,7 +378,7 @@
                                 Continuously improve technology, engineering practices, and collective knowledge through documentation, testing, and team collaboration.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-nova-200 text-xs font-mono text-nova-500">
+                        <div class="pt-4 border-t border-nova-200/60 text-xs font-mono text-nova-500">
                             Evolution & Scale
                         </div>
                     </div>
@@ -383,9 +386,9 @@
             </div>
         </section>
 
-        <section class="py-28 px-6 bg-nova-950 text-white border-b border-nova-800">
+        <section class="py-28 px-6 bg-nova-950 text-white border-b border-nova-900">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div class="p-10 rounded-3xl bg-nova-900 border border-nova-800 flex flex-col justify-between">
+                <div class="p-10 rounded-3xl bg-nova-900 border border-nova-800 flex flex-col justify-between shadow-xl">
                     <div>
                         <span class="text-xs font-mono tracking-widest text-nova-400 uppercase block mb-4">OUR VISION</span>
                         <h2 class="text-2xl sm:text-3xl font-bold mb-6 leading-snug">
@@ -397,7 +400,7 @@
                     </div>
                 </div>
 
-                <div class="p-10 rounded-3xl bg-nova-900 border border-nova-800 flex flex-col justify-between">
+                <div class="p-10 rounded-3xl bg-nova-900 border border-nova-800 flex flex-col justify-between shadow-xl">
                     <div>
                         <span class="text-xs font-mono tracking-widest text-nova-400 uppercase block mb-4">OUR MISSION</span>
                         <h2 class="text-2xl sm:text-3xl font-bold mb-6 leading-snug">
@@ -405,16 +408,16 @@
                         </h2>
                     </div>
                     <div class="grid grid-cols-4 gap-2 pt-6 border-t border-nova-800 text-[10px] font-mono text-nova-300 text-center">
-                        <div class="p-1.5 bg-nova-950 rounded">RESEARCH</div>
-                        <div class="p-1.5 bg-nova-950 rounded">ENGINEERING</div>
-                        <div class="p-1.5 bg-nova-950 rounded">COLLABORATION</div>
-                        <div class="p-1.5 bg-nova-950 rounded">INNOVATION</div>
+                        <div class="p-1.5 bg-nova-950 rounded border border-nova-800">RESEARCH</div>
+                        <div class="p-1.5 bg-nova-950 rounded border border-nova-800">ENGINEERING</div>
+                        <div class="p-1.5 bg-nova-950 rounded border border-nova-800">COLLABORATION</div>
+                        <div class="p-1.5 bg-nova-950 rounded border border-nova-800">INNOVATION</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="engineering" class="py-28 px-6 bg-white border-b border-nova-200">
+        <section id="engineering" class="py-28 px-6 bg-white border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">03 / ENGINEERING DOMAINS</span>
@@ -424,7 +427,7 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     <div class="lg:col-span-5 space-y-3">
-                        <button onclick="selectDomain('ai')" id="dom-btn-ai" class="w-full text-left p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white transition-all flex items-center justify-between group">
+                        <button onclick="selectDomain('ai')" id="dom-btn-ai" class="w-full text-left p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white transition-all flex items-center justify-between group shadow-sm">
                             <div>
                                 <span class="font-mono text-xs text-nova-300 block mb-1">DOMAIN 01</span>
                                 <span class="font-bold text-lg">Artificial Intelligence</span>
@@ -432,7 +435,7 @@
                             <i data-lucide="chevron-right" class="w-5 h-5 text-white"></i>
                         </button>
                         
-                        <button onclick="selectDomain('software')" id="dom-btn-software" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
+                        <button onclick="selectDomain('software')" id="dom-btn-software" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group interactive-card">
                             <div>
                                 <span class="font-mono text-xs text-nova-400 block mb-1">DOMAIN 02</span>
                                 <span class="font-bold text-lg">Software Engineering</span>
@@ -440,7 +443,7 @@
                             <i data-lucide="chevron-right" class="w-5 h-5 text-nova-400 group-hover:text-nova-900"></i>
                         </button>
 
-                        <button onclick="selectDomain('electronics')" id="dom-btn-electronics" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
+                        <button onclick="selectDomain('electronics')" id="dom-btn-electronics" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group interactive-card">
                             <div>
                                 <span class="font-mono text-xs text-nova-400 block mb-1">DOMAIN 03</span>
                                 <span class="font-bold text-lg">Electronics & Embedded Systems</span>
@@ -448,7 +451,7 @@
                             <i data-lucide="chevron-right" class="w-5 h-5 text-nova-400 group-hover:text-nova-900"></i>
                         </button>
 
-                        <button onclick="selectDomain('automation')" id="dom-btn-automation" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
+                        <button onclick="selectDomain('automation')" id="dom-btn-automation" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group interactive-card">
                             <div>
                                 <span class="font-mono text-xs text-nova-400 block mb-1">DOMAIN 04</span>
                                 <span class="font-bold text-lg">Automation & Systems</span>
@@ -456,7 +459,7 @@
                             <i data-lucide="chevron-right" class="w-5 h-5 text-nova-400 group-hover:text-nova-900"></i>
                         </button>
 
-                        <button onclick="selectDomain('intelligence')" id="dom-btn-intelligence" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
+                        <button onclick="selectDomain('intelligence')" id="dom-btn-intelligence" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group interactive-card">
                             <div>
                                 <span class="font-mono text-xs text-nova-400 block mb-1">DOMAIN 05</span>
                                 <span class="font-bold text-lg">Engineering Intelligence</span>
@@ -465,10 +468,10 @@
                         </button>
                     </div>
 
-                    <div class="lg:col-span-7 bg-nova-50 rounded-3xl p-8 sm:p-12 border border-nova-200 flex flex-col justify-between">
-                        <div id="domain-detail-container">
+                    <div class="lg:col-span-7 bg-nova-50/80 rounded-3xl p-8 sm:p-12 border border-nova-200 flex flex-col justify-between shadow-sm">
+                        <div id="domain-detail-container" class="transition-all duration-300">
                             <div class="flex items-center justify-between mb-6">
-                                <span id="domain-badge" class="px-3 py-1 rounded-full bg-nova-200 text-nova-900 text-xs font-mono font-semibold">AI & MACHINE LEARNING</span>
+                                <span id="domain-badge" class="px-3 py-1 rounded-full bg-white border border-nova-200 text-nova-900 text-xs font-mono font-semibold shadow-sm">AI & MACHINE LEARNING</span>
                                 <i data-lucide="cpu" class="w-8 h-8 text-nova-accent"></i>
                             </div>
                             <h3 id="domain-title" class="text-2xl sm:text-3xl font-bold text-nova-950 mb-4">Artificial Intelligence & Intelligent Agents</h3>
@@ -478,11 +481,11 @@
                             <div class="space-y-3">
                                 <span class="text-xs font-mono text-nova-500 uppercase tracking-wider block">Key Disciplines & Focus Areas</span>
                                 <div id="domain-tags" class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">Generative AI</span>
-                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">AI Agents</span>
-                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">Machine Learning</span>
-                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">Deep Learning</span>
-                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">Intelligent Automation</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium shadow-sm">Generative AI</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium shadow-sm">AI Agents</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium shadow-sm">Machine Learning</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium shadow-sm">Deep Learning</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium shadow-sm">Intelligent Automation</span>
                                 </div>
                             </div>
                         </div>
@@ -496,7 +499,7 @@
             </div>
         </section>
 
-        <section id="philosophy" class="py-28 px-6 bg-nova-50/50 border-b border-nova-200">
+        <section id="philosophy" class="py-28 px-6 bg-nova-50/50 border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">ENGINEERING PHILOSOPHY</span>
@@ -505,35 +508,35 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 mb-20">
-                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm interactive-card">
                         <span class="block font-mono text-xs text-nova-400 mb-2">01</span>
                         <span class="font-bold text-nova-950 text-sm block">DISCOVER</span>
                     </div>
-                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm interactive-card">
                         <span class="block font-mono text-xs text-nova-400 mb-2">02</span>
                         <span class="font-bold text-nova-950 text-sm block">UNDERSTAND</span>
                     </div>
-                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm interactive-card">
                         <span class="block font-mono text-xs text-nova-400 mb-2">03</span>
                         <span class="font-bold text-nova-950 text-sm block">ARCHITECT</span>
                     </div>
-                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm interactive-card">
                         <span class="block font-mono text-xs text-nova-400 mb-2">04</span>
                         <span class="font-bold text-nova-950 text-sm block">ENGINEER</span>
                     </div>
-                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm interactive-card">
                         <span class="block font-mono text-xs text-nova-400 mb-2">05</span>
                         <span class="font-bold text-nova-950 text-sm block">TEST</span>
                     </div>
-                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm interactive-card">
                         <span class="block font-mono text-xs text-nova-400 mb-2">06</span>
                         <span class="font-bold text-nova-950 text-sm block">VALIDATE</span>
                     </div>
-                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm interactive-card">
                         <span class="block font-mono text-xs text-nova-400 mb-2">07</span>
                         <span class="font-bold text-nova-950 text-sm block">DEPLOY</span>
                     </div>
-                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm interactive-card">
                         <span class="block font-mono text-xs text-nova-400 mb-2">08</span>
                         <span class="font-bold text-nova-950 text-sm block">EVOLVE</span>
                     </div>
@@ -544,32 +547,32 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200 shadow-sm interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">01 — CLARITY</span>
                         <h4 class="font-bold text-nova-950 text-lg mb-2">Understand the Problem</h4>
                         <p class="text-nova-600 text-sm">Deeply comprehend the problem before building any solution or writing code.</p>
                     </div>
-                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200 shadow-sm interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">02 — ARCHITECTURE</span>
                         <h4 class="font-bold text-nova-950 text-lg mb-2">Deliberate Design</h4>
                         <p class="text-nova-600 text-sm">Design systems deliberately with scalability, security, and structure in mind.</p>
                     </div>
-                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200 shadow-sm interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">03 — MODULARITY</span>
                         <h4 class="font-bold text-nova-950 text-lg mb-2">Evolvable Systems</h4>
                         <p class="text-nova-600 text-sm">Build modular components capable of evolving independently over time.</p>
                     </div>
-                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200 shadow-sm interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">04 — COLLABORATION</span>
                         <h4 class="font-bold text-nova-950 text-lg mb-2">Multidisciplinary Teamwork</h4>
                         <p class="text-nova-600 text-sm">Engineering is a collaborative team discipline combining diverse technical strengths.</p>
                     </div>
-                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200 shadow-sm interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">05 — VALIDATION</span>
                         <h4 class="font-bold text-nova-950 text-lg mb-2">Rigorous Testing</h4>
                         <p class="text-nova-600 text-sm">Systems must be thoroughly tested, verified, and secured prior to deployment.</p>
                     </div>
-                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200 shadow-sm interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">06 — DOCUMENTATION</span>
                         <h4 class="font-bold text-nova-950 text-lg mb-2">Reproducible Knowledge</h4>
                         <p class="text-nova-600 text-sm">Engineering knowledge should remain accessible, structured, and reproducible.</p>
@@ -578,7 +581,7 @@
             </div>
         </section>
 
-        <section id="organization" class="py-28 px-6 bg-white border-b border-nova-200">
+        <section id="organization" class="py-28 px-6 bg-white border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">04 / ORGANIZATION</span>
@@ -586,26 +589,26 @@
                     <p class="text-nova-600 text-lg">NOVA operates as a unified engineering lab structured around specialized technical domains working in tight synchronization.</p>
                 </div>
 
-                <div class="max-w-4xl mx-auto bg-nova-50 p-8 sm:p-12 rounded-3xl border border-nova-200 text-center relative overflow-hidden">
-                    <div class="inline-block px-6 py-3 rounded-2xl bg-[#1b1d24] text-white font-mono font-bold text-sm shadow-md mb-8">
+                <div class="max-w-4xl mx-auto bg-nova-50/80 p-8 sm:p-12 rounded-3xl border border-nova-200 text-center relative overflow-hidden shadow-sm">
+                    <div class="inline-block px-6 py-3 rounded-2xl bg-[#1e2230] text-white font-mono font-bold text-sm shadow-md mb-8">
                         NOVA ENGINEERING LABS
                     </div>
 
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
-                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Architecture</div>
-                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">AI & Intelligence</div>
-                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Software Engineering</div>
-                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Electronics & Embedded</div>
-                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">DevOps & Security</div>
-                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Quality Engineering</div>
-                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">UI/UX & Design Systems</div>
-                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Documentation & PM</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm interactive-card">Architecture</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm interactive-card">AI & Intelligence</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm interactive-card">Software Engineering</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm interactive-card">Electronics & Embedded</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm interactive-card">DevOps & Security</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm interactive-card">Quality Engineering</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm interactive-card">UI/UX & Design Systems</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm interactive-card">Documentation & PM</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="people" class="py-28 px-6 bg-nova-50/50 border-b border-nova-200">
+        <section id="people" class="py-28 px-6 bg-nova-50/50 border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">05 / PEOPLE & DIRECTORY</span>
@@ -618,7 +621,7 @@
             </div>
         </section>
 
-        <section id="culture" class="py-28 px-6 bg-white border-b border-nova-200">
+        <section id="culture" class="py-28 px-6 bg-white border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">06 / CULTURE</span>
@@ -627,32 +630,32 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/60 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">01</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">CURIOSITY</h3>
                         <p class="text-nova-600 text-sm">Question, investigate, and explore emerging technologies and unconventional ideas with an open mind.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/60 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">02</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">OWNERSHIP</h3>
                         <p class="text-nova-600 text-sm">Take full responsibility for what you build, architect, document, and release.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/60 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">03</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">PRECISION</h3>
                         <p class="text-nova-600 text-sm">Make deliberate engineering decisions focused on longevity, stability, and elegance.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/60 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">04</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">LEARNING</h3>
                         <p class="text-nova-600 text-sm">Continuously expand technical knowledge and share insights across the organization.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/60 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">05</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">COLLABORATION</h3>
                         <p class="text-nova-600 text-sm">Build stronger systems together by combining diverse engineering specialties.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/60 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">06</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">INTEGRITY</h3>
                         <p class="text-nova-600 text-sm">Engineer responsibly, honestly, and with strict adherence to rigorous standards.</p>
@@ -661,7 +664,7 @@
             </div>
         </section>
 
-        <section id="research" class="py-28 px-6 bg-nova-50/50 border-b border-nova-200">
+        <section id="research" class="py-28 px-6 bg-nova-50/50 border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                     <div class="lg:col-span-6">
@@ -695,11 +698,11 @@
                             We believe that internal engineering knowledge is foundational infrastructure. We maintain rigorous documentation, architecture decision records (ADRs), and standardized specifications to ensure reproducibility and clarity across every project.
                         </p>
                         <div class="grid grid-cols-2 gap-4 pt-4 border-t border-nova-100 text-xs font-mono">
-                            <div class="p-3 bg-nova-50 rounded-xl">
+                            <div class="p-3 bg-nova-50 rounded-xl border border-nova-100">
                                 <span class="block text-nova-400">STANDARDS</span>
                                 <span class="font-bold text-nova-900">Rigorous Documentation</span>
                             </div>
-                            <div class="p-3 bg-nova-50 rounded-xl">
+                            <div class="p-3 bg-nova-50 rounded-xl border border-nova-100">
                                 <span class="block text-nova-400">PRACTICE</span>
                                 <span class="font-bold text-nova-900">Architecture Records</span>
                             </div>
@@ -709,7 +712,7 @@
             </div>
         </section>
 
-        <section id="roadmap" class="py-28 px-6 bg-white border-b border-nova-200">
+        <section id="roadmap" class="py-28 px-6 bg-white border-b border-nova-100">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">08 / FUTURE ROADMAP</span>
@@ -718,32 +721,32 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">2026 — STAGE 01</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">FOUNDATION</h3>
                         <p class="text-nova-600 text-sm">Establish organizational structure, multidisciplinary team roles, and core engineering principles.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">2026 — STAGE 02</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">PLATFORM</h3>
                         <p class="text-nova-600 text-sm">Develop structured internal engineering infrastructure, design systems, and documentation standards.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">2026+ — STAGE 03</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">INTELLIGENCE</h3>
                         <p class="text-nova-600 text-sm">Expand AI, machine learning, and multi-agent system capabilities across engineering domains.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">FUTURE — STAGE 04</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">INTEGRATION</h3>
                         <p class="text-nova-600 text-sm">Connect software intelligence with electronics, embedded systems, and automated hardware.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">FUTURE — STAGE 05</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">AUTOMATION</h3>
                         <p class="text-nova-600 text-sm">Expand intelligent automation workflows and connected system architectures.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                    <div class="p-8 rounded-3xl bg-nova-50/70 border border-nova-200 interactive-card">
                         <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">FUTURE — STAGE 06</span>
                         <h3 class="text-xl font-bold text-nova-950 mb-2">ECOSYSTEM</h3>
                         <p class="text-nova-600 text-sm">Develop a broader interconnected engineering ecosystem for collaborative research and innovation.</p>
@@ -752,15 +755,16 @@
             </div>
         </section>
 
-        <section id="contact" class="py-28 px-6 bg-nova-950 text-white">
-            <div class="max-w-5xl mx-auto text-center">
+        <section id="contact" class="py-28 px-6 bg-nova-950 text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+            <div class="max-w-5xl mx-auto text-center relative z-10">
                 <span class="text-xs font-mono tracking-widest text-nova-400 uppercase block mb-3">CONNECT WITH NOVA</span>
                 <h2 class="text-3xl sm:text-5xl font-bold tracking-tight mb-6">Build the Future With Us.</h2>
                 <p class="text-nova-300 text-lg max-w-2xl mx-auto mb-10">
                     We believe the next generation of technology will be built by people willing to learn, experiment, engineer, collaborate, and think beyond conventional boundaries.
                 </p>
                 <div class="flex flex-wrap items-center justify-center gap-4">
-                    <a href="mailto:contact@novaengineeringlabs.org" class="px-8 py-4 rounded-full bg-white text-nova-950 font-semibold text-sm tracking-wider uppercase hover:bg-nova-100 transition-all shadow-md">
+                    <a href="mailto:contact@novaengineeringlabs.org" class="px-8 py-4 rounded-full bg-white text-nova-950 font-semibold text-sm tracking-wider uppercase hover:bg-nova-100 transition-all shadow-md hover:scale-105">
                         Get In Touch
                     </a>
                     <a href="#about" class="px-8 py-4 rounded-full bg-nova-900 border border-nova-800 text-white font-semibold text-sm tracking-wider uppercase hover:border-nova-600 transition-all">
@@ -807,10 +811,9 @@
     </footer>
 
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile Menu Toggle
+        // Mobile Menu Toggle logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -854,20 +857,25 @@
             ['N', 'O', 'V', 'A'].forEach(l => {
                 const btn = document.getElementById(`btn-${l}`);
                 if (l === letter) {
-                    btn.className = "acronym-btn p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white text-left transition-all";
+                    btn.className = "acronym-btn p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white text-left transition-all shadow-md";
                     btn.querySelector('span:last-child').className = "text-xs font-medium tracking-wide text-nova-300";
                 } else {
-                    btn.className = "acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400";
+                    btn.className = "acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400 interactive-card";
                     btn.querySelector('span:last-child').className = "text-xs font-medium tracking-wide text-nova-500";
                 }
             });
 
-            const data = acronymData[letter];
-            document.getElementById('acronym-title').innerText = data.title;
-            document.getElementById('acronym-desc').innerText = data.desc;
+            const contentEl = document.getElementById('acronym-content');
+            contentEl.style.opacity = '0';
+            setTimeout(() => {
+                const data = acronymData[letter];
+                document.getElementById('acronym-title').innerText = data.title;
+                document.getElementById('acronym-desc').innerText = data.desc;
+                contentEl.style.opacity = '1';
+            }, 150);
         }
 
-        // Domain Explorer Data & Logic (Ensuring full interactivity and proper state switching)
+        // Domain Explorer Data & Logic
         const domainData = {
             'ai': {
                 badge: 'AI & MACHINE LEARNING',
@@ -905,38 +913,38 @@
             ['ai', 'software', 'electronics', 'automation', 'intelligence'].forEach(d => {
                 const btn = document.getElementById(`dom-btn-${d}`);
                 if (d === domainKey) {
-                    btn.className = "w-full text-left p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white transition-all flex items-center justify-between group";
+                    btn.className = "w-full text-left p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white transition-all flex items-center justify-between group shadow-sm";
                     btn.querySelector('span.font-mono').className = "font-mono text-xs text-nova-300 block mb-1";
                     const icon = btn.querySelector('i');
-                    if (icon) {
-                        icon.className = "w-5 h-5 text-white";
-                    }
+                    if (icon) icon.className = "w-5 h-5 text-white";
                 } else {
-                    btn.className = "w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group";
+                    btn.className = "w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group interactive-card";
                     btn.querySelector('span.font-mono').className = "font-mono text-xs text-nova-400 block mb-1";
                     const icon = btn.querySelector('i');
-                    if (icon) {
-                        icon.className = "w-5 h-5 text-nova-400 group-hover:text-nova-900";
-                    }
+                    if (icon) icon.className = "w-5 h-5 text-nova-400 group-hover:text-nova-900";
                 }
             });
 
-            const data = domainData[domainKey];
-            document.getElementById('domain-badge').innerText = data.badge;
-            document.getElementById('domain-title').innerText = data.title;
-            document.getElementById('domain-desc').innerText = data.desc;
-            
-            const tagsContainer = document.getElementById('domain-tags');
-            tagsContainer.innerHTML = '';
-            data.tags.forEach(tag => {
-                const span = document.createElement('span');
-                span.className = "px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium";
-                span.innerText = tag;
-                tagsContainer.appendChild(span);
-            });
+            const container = document.getElementById('domain-detail-container');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                const data = domainData[domainKey];
+                document.getElementById('domain-badge').innerText = data.badge;
+                document.getElementById('domain-title').innerText = data.title;
+                document.getElementById('domain-desc').innerText = data.desc;
+                
+                const tagsContainer = document.getElementById('domain-tags');
+                tagsContainer.innerHTML = '';
+                data.tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = "px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium shadow-sm";
+                    span.innerText = tag;
+                    tagsContainer.appendChild(span);
+                });
+                container.style.opacity = '1';
+            }, 150);
         }
 
-        // Quick bridge helper for About Section scope cards linking directly into domain selector
         function setActiveDomainInfo(domainKey) {
             selectDomain(domainKey);
             const engineeringSection = document.getElementById('engineering');
@@ -945,7 +953,7 @@
             }
         }
 
-        // Structured Team Data with profile picture placeholders, roles, descriptions, and direct social links
+        // Team Directory Dataset
         const teamMembers = [
             {
                 name: 'Cindhe Sai Mukesh',
@@ -1004,25 +1012,25 @@
             }
         ];
 
-        // Render Dedicated Team Section Cards Dynamically
+        // Render Team Members
         const teamGrid = document.getElementById('team-grid');
         teamMembers.forEach(member => {
             const card = document.createElement('div');
-            card.className = "p-8 rounded-3xl bg-white border border-nova-200 hover:border-nova-900 transition-all duration-300 flex flex-col justify-between shadow-sm";
+            card.className = "p-8 rounded-3xl bg-white border border-nova-200 interactive-card flex flex-col justify-between shadow-sm";
 
             card.innerHTML = `
                 <div>
-                    <div class="w-32 h-32 rounded-2xl bg-nova-100 border border-nova-200 flex items-center justify-center font-mono font-bold text-2xl text-nova-700 mb-6 mx-auto overflow-hidden shadow-inner">
+                    <div class="w-32 h-32 rounded-2xl bg-nova-50 border border-nova-200 flex items-center justify-center font-mono font-bold text-2xl text-nova-700 mb-6 mx-auto overflow-hidden shadow-inner relative group">
                         ${member.image
-                            ? `<img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover" onerror="this.replaceWith(document.createTextNode('${member.name.split(' ').map(n => n[0]).join('')}'))">`
-                            : member.name.split(' ').map(n => n[0]).join('')
+                            ? `<img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.replaceWith(document.createTextNode('${member.name.split(' ').map(n => n[0]).join('')}'))">`
+                            : `<span class="bg-gradient-to-br from-nova-900 to-nova-accent bg-clip-text text-transparent">${member.name.split(' ').map(n => n[0]).join('')}</span>`
                         }
                     </div>
                     <span class="text-xs font-mono text-nova-accent font-semibold uppercase tracking-wider block mb-1">${member.role}</span>
                     <h3 class="text-xl font-bold text-nova-950 mb-3">${member.name}</h3>
                     <p class="text-nova-600 text-sm leading-relaxed mb-6">${member.bio}</p>
                 </div>
-                <div class="pt-4 border-t border-nova-100 flex items-center gap-3">
+                <div class="pt-4 border-t border-nova-100 flex items-center gap-2">
                     <a href="${member.links.linkedin}" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-nova-50 text-nova-800 hover:bg-nova-900 hover:text-white transition-colors flex items-center gap-1.5 text-xs font-mono font-medium" aria-label="LinkedIn">
                         <i data-lucide="linkedin" class="w-4 h-4"></i>
                         <span>LinkedIn</span>
@@ -1031,7 +1039,7 @@
                         <i data-lucide="instagram" class="w-4 h-4"></i>
                         <span>Instagram</span>
                     </a>
-                    <a href="${member.links.email}" class="p-2.5 rounded-xl bg-nova-50 text-nova-800 hover:bg-nova-900 hover:text-white transition-colors flex items-center justify-center" aria-label="Email">
+                    <a href="${member.links.email}" class="p-2.5 rounded-xl bg-nova-50 text-nova-800 hover:bg-nova-900 hover:text-white transition-colors flex items-center justify-center ml-auto" aria-label="Email">
                         <i data-lucide="mail" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -1039,7 +1047,6 @@
             teamGrid.appendChild(card);
         });
 
-        // Re-initialize icons for newly inserted DOM elements
         lucide.createIcons();
     </script>
 </body>
