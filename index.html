@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA Engineering Labs | Engineering Intelligence</title>
+    <meta name="description" content="NOVA Engineering Labs is a multidisciplinary engineering organization exploring artificial intelligence, software engineering, electronics, automation, and emerging technologies.">
+    
+    <meta property="og:title" content="NOVA Engineering Labs | Engineering Intelligence">
+    <meta property="og:description" content="Engineering Intelligence. Building What Comes Next. A multidisciplinary engineering organization exploring intelligent software, AI, electronics, and automation.">
+    <meta property="og:type" content="website">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nova: {
+                            50: '#f6f6f8',
+                            100: '#ececf0',
+                            200: '#d5d6dd',
+                            300: '#b0b3c0',
+                            400: '#83889b',
+                            500: '#61667c',
+                            600: '#4b5064',
+                            700: '#3c4051',
+                            800: '#323543',
+                            900: '#1b1d24',
+                            950: '#0e0f13',
+                            accent: '#6366f1', // Electric Violet Accent
+                            accentHover: '#4f46e5',
+                            cyan: '#06b6d4',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and selection */
+        ::selection {
+            background-color: #6366f1;
+            color: #ffffff;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f6f6f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d5d6dd;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b0b3c0;
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.03); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#fafafa] text-[#1b1d24] font-sans antialiased selection:bg-nova-accent selection:text-white">
+
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-[#ececf0]">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-lg bg-[#1b1d24] text-white flex items-center justify-center font-mono font-bold text-lg tracking-wider group-hover:bg-nova-accent transition-colors">
+                    N
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold tracking-tight text-base">NOVA</span>
+                    <span class="text-[10px] font-mono tracking-widest text-nova-400 uppercase">Engineering Labs</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-nova-600">
+                <a href="#about" class="hover:text-nova-900 transition-colors">About</a>
+                <a href="#purpose" class="hover:text-nova-900 transition-colors">Purpose</a>
+                <a href="#engineering" class="hover:text-nova-900 transition-colors">Engineering</a>
+                <a href="#philosophy" class="hover:text-nova-900 transition-colors">Philosophy</a>
+                <a href="#organization" class="hover:text-nova-900 transition-colors">Organization</a>
+                <a href="#people" class="hover:text-nova-900 transition-colors">Team</a>
+                <a href="#culture" class="hover:text-nova-900 transition-colors">Culture</a>
+                <a href="#research" class="hover:text-nova-900 transition-colors">Research</a>
+                <a href="#roadmap" class="hover:text-nova-900 transition-colors">Roadmap</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#1b1d24] text-white text-xs font-semibold tracking-wider uppercase hover:bg-nova-accent transition-all shadow-sm">
+                    Connect With Nova
+                </a>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-nova-800 hover:text-nova-accent focus:outline-none" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-50 flex flex-col px-6 py-8 lg:hidden transform translate-x-full transition-transform duration-300">
+            <div class="flex items-center justify-between pb-6 border-b border-nova-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-[#1b1d24] text-white flex items-center justify-center font-mono font-bold text-base">N</div>
+                    <span class="font-bold tracking-tight text-sm">NOVA Engineering Labs</span>
+                </div>
+                <button id="mobile-menu-close" class="p-2 text-nova-800 hover:text-nova-accent" aria-label="Close Menu">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-5 py-8 text-lg font-medium text-nova-800">
+                <a href="#about" class="mobile-nav-link hover:text-nova-accent transition-colors">About</a>
+                <a href="#purpose" class="mobile-nav-link hover:text-nova-accent transition-colors">Purpose</a>
+                <a href="#engineering" class="mobile-nav-link hover:text-nova-accent transition-colors">Engineering Domains</a>
+                <a href="#philosophy" class="mobile-nav-link hover:text-nova-accent transition-colors">Philosophy & Model</a>
+                <a href="#organization" class="mobile-nav-link hover:text-nova-accent transition-colors">Organizational Structure</a>
+                <a href="#people" class="mobile-nav-link hover:text-nova-accent transition-colors">The Team</a>
+                <a href="#culture" class="mobile-nav-link hover:text-nova-accent transition-colors">Culture</a>
+                <a href="#research" class="mobile-nav-link hover:text-nova-accent transition-colors">Research & Innovation</a>
+                <a href="#roadmap" class="mobile-nav-link hover:text-nova-accent transition-colors">Future Roadmap</a>
+            </nav>
+            <div class="mt-auto pt-6 border-t border-nova-100">
+                <a href="#contact" class="mobile-nav-link w-full py-3 rounded-full bg-[#1b1d24] text-white text-center font-semibold text-sm tracking-wider uppercase block">
+                    Connect With Nova
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 px-6 border-b border-nova-200">
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#1b1d24_1px,transparent_1px)] [background-size:24px_24px]"></div>
+            
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                <div class="lg:col-span-7 flex flex-col items-start text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nova-100/70 border border-nova-200 text-nova-700 font-mono text-xs tracking-wider uppercase mb-6">
+                        <span class="w-2 h-2 rounded-full bg-nova-accent animate-ping"></span>
+                        Multidisciplinary Engineering Laboratory
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-nova-950 leading-[1.08] mb-6">
+                        Engineering Intelligence.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-nova-900 via-nova-accent to-nova-cyan">Building What Comes Next.</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-nova-600 font-normal leading-relaxed max-w-2xl mb-10">
+                        NOVA Engineering Labs is a multidisciplinary engineering organization exploring intelligent software, artificial intelligence, electronics, automation, and emerging technologies through structured engineering, collaboration, and continuous innovation.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+                        <a href="#about" class="px-8 py-4 rounded-full bg-[#1b1d24] text-white font-semibold text-sm tracking-wider uppercase hover:bg-nova-accent transition-all shadow-md flex items-center gap-2">
+                            <span>Discover Nova</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#people" class="px-8 py-4 rounded-full bg-white border border-nova-300 text-nova-900 font-semibold text-sm tracking-wider uppercase hover:border-nova-900 transition-all">
+                            Meet The Team
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative flex items-center justify-center">
+                    <div class="w-full aspect-square max-w-[480px] rounded-3xl bg-white border border-nova-200 shadow-xl p-8 flex flex-col justify-between relative overflow-hidden animate-float">
+                        <div class="absolute inset-0 bg-gradient-to-br from-nova-50/50 via-transparent to-nova-accent/5 pointer-events-none"></div>
+                        
+                        <div class="flex justify-between items-center z-10">
+                            <span class="font-mono text-xs text-nova-400">LAB SYSTEM v2.6</span>
+                            <span class="px-2.5 py-1 rounded-md bg-nova-100 text-nova-800 text-[10px] font-mono font-semibold">ACTIVE LAB</span>
+                        </div>
+
+                        <div class="relative flex items-center justify-center my-auto z-10">
+                            <div class="w-28 h-28 rounded-2xl bg-[#1b1d24] text-white flex flex-col items-center justify-center shadow-lg relative z-20">
+                                <span class="font-mono font-bold text-xl tracking-widest">NOVA</span>
+                                <span class="text-[9px] font-mono text-nova-300 mt-0.5">LABS</span>
+                            </div>
+
+                            <div class="absolute w-64 h-64 rounded-full border border-dashed border-nova-300 animate-spin" style="animation-duration: 40s;"></div>
+                            
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-sm z-20">
+                                AI & Agents
+                            </div>
+                            <div class="absolute bottom-2 -left-2 px-3 py-1.5 rounded-lg bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-sm z-20">
+                                Software
+                            </div>
+                            <div class="absolute bottom-2 -right-2 px-3 py-1.5 rounded-lg bg-white border border-nova-200 text-nova-900 text-xs font-mono shadow-sm z-20">
+                                Electronics
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-nova-100 text-center z-10">
+                            <div class="p-2 rounded-lg bg-nova-50">
+                                <span class="block text-[10px] text-nova-400 font-mono">DOMAINS</span>
+                                <span class="text-xs font-bold text-nova-900">06 Active</span>
+                            </div>
+                            <div class="p-2 rounded-lg bg-nova-50">
+                                <span class="block text-[10px] text-nova-400 font-mono">PHILOSOPHY</span>
+                                <span class="text-xs font-bold text-nova-900">Systemic</span>
+                            </div>
+                            <div class="p-2 rounded-lg bg-nova-50">
+                                <span class="block text-[10px] text-nova-400 font-mono">STANDARD</span>
+                                <span class="text-xs font-bold text-nova-900">Rigorous</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-white border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">BRAND ARCHITECTURE</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-nova-950 mb-4">What NOVA Stands For</h2>
+                    <p class="text-nova-600 text-base">Select each pillar of our founding acronym to explore the technological vision that defines our organization.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                        <button onclick="setAcronym('N')" id="btn-N" class="acronym-btn p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white text-left transition-all group">
+                            <span class="block font-mono text-3xl font-bold mb-1">N</span>
+                            <span class="text-xs font-medium tracking-wide text-nova-300">Next-Generation</span>
+                        </button>
+                        <button onclick="setAcronym('O')" id="btn-O" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400">
+                            <span class="block font-mono text-3xl font-bold mb-1">O</span>
+                            <span class="text-xs font-medium tracking-wide text-nova-500">Omniscient</span>
+                        </button>
+                        <button onclick="setAcronym('V')" id="btn-V" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400">
+                            <span class="block font-mono text-3xl font-bold mb-1">V</span>
+                            <span class="text-xs font-medium tracking-wide text-nova-500">Virtual</span>
+                        </button>
+                        <button onclick="setAcronym('A')" id="btn-A" class="acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400">
+                            <span class="block font-mono text-3xl font-bold mb-1">A</span>
+                            <span class="text-xs font-medium tracking-wide text-nova-500">Assistant</span>
+                        </button>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-nova-50 rounded-3xl p-8 sm:p-12 border border-nova-200 min-h-[320px] flex flex-col justify-center">
+                        <div id="acronym-content">
+                            <span class="font-mono text-xs font-semibold tracking-wider text-nova-accent uppercase mb-3 block">Foundational Definition // 01</span>
+                            <h3 id="acronym-title" class="text-2xl sm:text-3xl font-bold text-nova-950 mb-4">Next-Generation</h3>
+                            <p id="acronym-desc" class="text-nova-700 text-lg leading-relaxed">
+                                Engineering beyond conventional approaches. Building robust systems designed for future scalability, performance, and technological resilience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-28 px-6 bg-nova-50/50 border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-6">
+                        <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">01 / ABOUT NOVA</span>
+                        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-6 leading-tight">We Are NOVA.</h2>
+                        <p class="text-nova-700 text-lg leading-relaxed mb-6">
+                            NOVA Engineering Labs is an engineering-focused organization created around the belief that meaningful technological progress requires both imagination and disciplined engineering.
+                        </p>
+                        <p class="text-nova-600 text-base leading-relaxed mb-8">
+                            NOVA brings together people with different technical strengths to explore, design, build, validate, document, and evolve intelligent systems. We operate across software architecture, artificial intelligence, electronics, automation, and structured research.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 pt-6 border-t border-nova-200">
+                            <div>
+                                <span class="block font-mono text-2xl font-bold text-nova-950 mb-1">Multidisciplinary</span>
+                                <span class="text-sm text-nova-500">Collaborative engineering teams</span>
+                            </div>
+                            <div>
+                                <span class="block font-mono text-2xl font-bold text-nova-950 mb-1">Rigorous</span>
+                                <span class="text-sm text-nova-500">Systemic validation & architecture</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-nova-200 shadow-sm">
+                        <h3 class="font-bold text-xl text-nova-950 mb-6 flex items-center justify-between">
+                            <span>Core Engineering Scope</span>
+                            <i data-lucide="cpu" class="w-5 h-5 text-nova-accent"></i>
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-400 transition-all cursor-pointer" onclick="setActiveDomainInfo('ai')">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="font-bold text-nova-900 text-sm">Artificial Intelligence & Agents</span>
+                                    <span class="text-xs font-mono text-nova-accent">Explore &rarr;</span>
+                                </div>
+                                <p class="text-xs text-nova-600">Generative models, multi-agent frameworks, and autonomous learning systems.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-400 transition-all cursor-pointer" onclick="setActiveDomainInfo('software')">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="font-bold text-nova-900 text-sm">Software & System Architecture</span>
+                                    <span class="text-xs font-mono text-nova-accent">Explore &rarr;</span>
+                                </div>
+                                <p class="text-xs text-nova-600">Scalable backend infrastructure, modern frontend engineering, and APIs.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-nova-50 border border-nova-200 hover:border-nova-400 transition-all cursor-pointer" onclick="setActiveDomainInfo('electronics')">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="font-bold text-nova-900 text-sm">Electronics & Embedded Systems</span>
+                                    <span class="text-xs font-mono text-nova-accent">Explore &rarr;</span>
+                                </div>
+                                <p class="text-xs text-nova-600">Hardware integration, microcontrollers, embedded computing, and sensors.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="purpose" class="py-28 px-6 bg-white border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">02 / PURPOSE</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-4">Why NOVA Exists</h2>
+                    <p class="text-nova-600 text-lg">Technology is evolving rapidly. NOVA exists to create an environment where ambitious ideas can be explored and transformed into intelligently engineered systems.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200 hover:border-nova-900 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors">
+                                01
+                            </div>
+                            <h3 class="text-xl font-bold text-nova-950 mb-3">EXPLORE</h3>
+                            <p class="text-nova-600 text-sm leading-relaxed mb-6">
+                                Investigate emerging technologies, ideas, architectures, and possibilities without being constrained by conventional dogma.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-nova-200 text-xs font-mono text-nova-500">
+                            Research & Ideation Phase
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200 hover:border-nova-900 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors">
+                                02
+                            </div>
+                            <h3 class="text-xl font-bold text-nova-950 mb-3">ENGINEER</h3>
+                            <p class="text-nova-600 text-sm leading-relaxed mb-6">
+                                Transform concepts into structured, reliable, and scalable systems through rigorous architecture, modular design, and disciplined coding.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-nova-200 text-xs font-mono text-nova-500">
+                            Implementation & Build
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200 hover:border-nova-900 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-white border border-nova-200 flex items-center justify-center text-nova-950 font-mono font-bold mb-6 group-hover:bg-nova-900 group-hover:text-white transition-colors">
+                                03
+                            </div>
+                            <h3 class="text-xl font-bold text-nova-950 mb-3">ADVANCE</h3>
+                            <p class="text-nova-600 text-sm leading-relaxed mb-6">
+                                Continuously improve technology, engineering practices, and collective knowledge through documentation, testing, and team collaboration.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-nova-200 text-xs font-mono text-nova-500">
+                            Evolution & Scale
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-28 px-6 bg-nova-950 text-white border-b border-nova-800">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="p-10 rounded-3xl bg-nova-900 border border-nova-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono tracking-widest text-nova-400 uppercase block mb-4">OUR VISION</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-6 leading-snug">
+                            To build an engineering organization capable of creating intelligent technologies that contribute meaningfully to the future of software, AI, electronics, automation, and connected systems.
+                        </h2>
+                    </div>
+                    <div class="pt-6 border-t border-nova-800 font-mono text-xs text-nova-400 flex items-center gap-2">
+                        <i data-lucide="eye" class="w-4 h-4 text-nova-accent"><span>Future-Oriented Engineering</span></i>
+                    </div>
+                </div>
+
+                <div class="p-10 rounded-3xl bg-nova-900 border border-nova-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono tracking-widest text-nova-400 uppercase block mb-4">OUR MISSION</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-6 leading-snug">
+                            To create an environment where ambitious technological ideas can be transformed into intelligently engineered systems through research, experimentation, collaboration, disciplined engineering, and continuous learning.
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 pt-6 border-t border-nova-800 text-[10px] font-mono text-nova-300 text-center">
+                        <div class="p-1.5 bg-nova-950 rounded">RESEARCH</div>
+                        <div class="p-1.5 bg-nova-950 rounded">ENGINEERING</div>
+                        <div class="p-1.5 bg-nova-950 rounded">COLLABORATION</div>
+                        <div class="p-1.5 bg-nova-950 rounded">INNOVATION</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="engineering" class="py-28 px-6 bg-white border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">03 / ENGINEERING DOMAINS</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-4">Where We Engineer</h2>
+                    <p class="text-nova-600 text-lg">Explore our core technical domains. Each area represents a vital pillar of NOVA's multidisciplinary engineering capability.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-5 space-y-3">
+                        <button onclick="selectDomain('ai')" id="dom-btn-ai" class="w-full text-left p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white transition-all flex items-center justify-between group">
+                            <div>
+                                <span class="font-mono text-xs text-nova-300 block mb-1">DOMAIN 01</span>
+                                <span class="font-bold text-lg">Artificial Intelligence</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                        
+                        <button onclick="selectDomain('software')" id="dom-btn-software" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
+                            <div>
+                                <span class="font-mono text-xs text-nova-400 block mb-1">DOMAIN 02</span>
+                                <span class="font-bold text-lg">Software Engineering</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-nova-400 group-hover:text-nova-900"></i>
+                        </button>
+
+                        <button onclick="selectDomain('electronics')" id="dom-btn-electronics" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
+                            <div>
+                                <span class="font-mono text-xs text-nova-400 block mb-1">DOMAIN 03</span>
+                                <span class="font-bold text-lg">Electronics & Embedded Systems</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-nova-400 group-hover:text-nova-900"></i>
+                        </button>
+
+                        <button onclick="selectDomain('automation')" id="dom-btn-automation" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
+                            <div>
+                                <span class="font-mono text-xs text-nova-400 block mb-1">DOMAIN 04</span>
+                                <span class="font-bold text-lg">Automation & Systems</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-nova-400 group-hover:text-nova-900"></i>
+                        </button>
+
+                        <button onclick="selectDomain('intelligence')" id="dom-btn-intelligence" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
+                            <div>
+                                <span class="font-mono text-xs text-nova-400 block mb-1">DOMAIN 05</span>
+                                <span class="font-bold text-lg">Engineering Intelligence</span>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-nova-400 group-hover:text-nova-900"></i>
+                        </button>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-nova-50 rounded-3xl p-8 sm:p-12 border border-nova-200 flex flex-col justify-between">
+                        <div id="domain-detail-container">
+                            <div class="flex items-center justify-between mb-6">
+                                <span id="domain-badge" class="px-3 py-1 rounded-full bg-nova-200 text-nova-900 text-xs font-mono font-semibold">AI & MACHINE LEARNING</span>
+                                <i data-lucide="cpu" class="w-8 h-8 text-nova-accent"></i>
+                            </div>
+                            <h3 id="domain-title" class="text-2xl sm:text-3xl font-bold text-nova-950 mb-4">Artificial Intelligence & Intelligent Agents</h3>
+                            <p id="domain-desc" class="text-nova-700 text-base leading-relaxed mb-8">
+                                Exploring generative AI models, multi-agent frameworks, machine learning algorithms, and intelligent automation to build software capable of complex reasoning and context-aware execution.
+                            </p>
+                            <div class="space-y-3">
+                                <span class="text-xs font-mono text-nova-500 uppercase tracking-wider block">Key Disciplines & Focus Areas</span>
+                                <div id="domain-tags" class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">Generative AI</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">AI Agents</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">Machine Learning</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">Deep Learning</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium">Intelligent Automation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-8 mt-8 border-t border-nova-200 flex items-center justify-between text-xs font-mono text-nova-500">
+                            <span>NOVA ENGINEERING LABS</span>
+                            <span>MULTIDISCIPLINARY FRAMEWORK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="py-28 px-6 bg-nova-50/50 border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">ENGINEERING PHILOSOPHY</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-4">Engineering Is a System.</h2>
+                    <p class="text-nova-600 text-lg">We don't treat engineering as simply writing code. We treat it as a complete lifecycle of understanding, architecture, implementation, validation, and continuous evolution.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 mb-20">
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                        <span class="block font-mono text-xs text-nova-400 mb-2">01</span>
+                        <span class="font-bold text-nova-950 text-sm block">DISCOVER</span>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                        <span class="block font-mono text-xs text-nova-400 mb-2">02</span>
+                        <span class="font-bold text-nova-950 text-sm block">UNDERSTAND</span>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                        <span class="block font-mono text-xs text-nova-400 mb-2">03</span>
+                        <span class="font-bold text-nova-950 text-sm block">ARCHITECT</span>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                        <span class="block font-mono text-xs text-nova-400 mb-2">04</span>
+                        <span class="font-bold text-nova-950 text-sm block">ENGINEER</span>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                        <span class="block font-mono text-xs text-nova-400 mb-2">05</span>
+                        <span class="font-bold text-nova-950 text-sm block">TEST</span>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                        <span class="block font-mono text-xs text-nova-400 mb-2">06</span>
+                        <span class="font-bold text-nova-950 text-sm block">VALIDATE</span>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                        <span class="block font-mono text-xs text-nova-400 mb-2">07</span>
+                        <span class="font-bold text-nova-950 text-sm block">DEPLOY</span>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-nova-200 text-center shadow-sm">
+                        <span class="block font-mono text-xs text-nova-400 mb-2">08</span>
+                        <span class="font-bold text-nova-950 text-sm block">EVOLVE</span>
+                    </div>
+                </div>
+
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-nova-950">The Seven NOVA Principles</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">01 — CLARITY</span>
+                        <h4 class="font-bold text-nova-950 text-lg mb-2">Understand the Problem</h4>
+                        <p class="text-nova-600 text-sm">Deeply comprehend the problem before building any solution or writing code.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">02 — ARCHITECTURE</span>
+                        <h4 class="font-bold text-nova-950 text-lg mb-2">Deliberate Design</h4>
+                        <p class="text-nova-600 text-sm">Design systems deliberately with scalability, security, and structure in mind.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">03 — MODULARITY</span>
+                        <h4 class="font-bold text-nova-950 text-lg mb-2">Evolvable Systems</h4>
+                        <p class="text-nova-600 text-sm">Build modular components capable of evolving independently over time.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">04 — COLLABORATION</span>
+                        <h4 class="font-bold text-nova-950 text-lg mb-2">Multidisciplinary Teamwork</h4>
+                        <p class="text-nova-600 text-sm">Engineering is a collaborative team discipline combining diverse technical strengths.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">05 — VALIDATION</span>
+                        <h4 class="font-bold text-nova-950 text-lg mb-2">Rigorous Testing</h4>
+                        <p class="text-nova-600 text-sm">Systems must be thoroughly tested, verified, and secured prior to deployment.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-2 block">06 — DOCUMENTATION</span>
+                        <h4 class="font-bold text-nova-950 text-lg mb-2">Reproducible Knowledge</h4>
+                        <p class="text-nova-600 text-sm">Engineering knowledge should remain accessible, structured, and reproducible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="organization" class="py-28 px-6 bg-white border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">04 / ORGANIZATION</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-4">One Organization. Multiple Disciplines.</h2>
+                    <p class="text-nova-600 text-lg">NOVA operates as a unified engineering lab structured around specialized technical domains working in tight synchronization.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-nova-50 p-8 sm:p-12 rounded-3xl border border-nova-200 text-center relative overflow-hidden">
+                    <div class="inline-block px-6 py-3 rounded-2xl bg-[#1b1d24] text-white font-mono font-bold text-sm shadow-md mb-8">
+                        NOVA ENGINEERING LABS
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Architecture</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">AI & Intelligence</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Software Engineering</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Electronics & Embedded</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">DevOps & Security</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Quality Engineering</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">UI/UX & Design Systems</div>
+                        <div class="p-4 rounded-xl bg-white border border-nova-200 text-nova-900 font-semibold shadow-sm">Documentation & PM</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="people" class="py-28 px-6 bg-nova-50/50 border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">05 / PEOPLE & DIRECTORY</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-4">The Team Behind NOVA</h2>
+                    <p class="text-nova-600 text-lg">NOVA is built by specialists with different technical strengths, responsibilities, perspectives, and areas of expertise working toward a shared engineering vision.</p>
+                </div>
+
+                <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    </div>
+            </div>
+        </section>
+
+        <section id="culture" class="py-28 px-6 bg-white border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">06 / CULTURE</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-4">A Culture of Engineering</h2>
+                    <p class="text-nova-600 text-lg">Our culture is defined by shared values that guide how we experiment, collaborate, and build.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">01</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">CURIOSITY</h3>
+                        <p class="text-nova-600 text-sm">Question, investigate, and explore emerging technologies and unconventional ideas with an open mind.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">02</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">OWNERSHIP</h3>
+                        <p class="text-nova-600 text-sm">Take full responsibility for what you build, architect, document, and release.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">03</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">PRECISION</h3>
+                        <p class="text-nova-600 text-sm">Make deliberate engineering decisions focused on longevity, stability, and elegance.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">04</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">LEARNING</h3>
+                        <p class="text-nova-600 text-sm">Continuously expand technical knowledge and share insights across the organization.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">05</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">COLLABORATION</h3>
+                        <p class="text-nova-600 text-sm">Build stronger systems together by combining diverse engineering specialties.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs font-bold text-nova-accent mb-3 block">06</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">INTEGRITY</h3>
+                        <p class="text-nova-600 text-sm">Engineer responsibly, honestly, and with strict adherence to rigorous standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="py-28 px-6 bg-nova-50/50 border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-6">
+                        <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">07 / RESEARCH & INNOVATION</span>
+                        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-6 leading-tight">Exploring What Comes Next.</h2>
+                        <p class="text-nova-700 text-lg leading-relaxed mb-6">
+                            NOVA explores emerging technologies and engineering methodologies. Our research is driven by structured experimentation and a commitment to advancing collective technical understanding.
+                        </p>
+                        <div class="space-y-3 font-mono text-xs text-nova-600">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-nova-accent"></i>
+                                <span>Artificial Intelligence & Generative Models</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-nova-accent"></i>
+                                <span>Autonomous Multi-Agent Frameworks</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-nova-accent"></i>
+                                <span>Embedded Intelligence & Hardware Integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-nova-200 shadow-sm">
+                        <h3 class="font-bold text-xl text-nova-950 mb-4 flex items-center justify-between">
+                            <span>Knowledge Is Infrastructure</span>
+                            <i data-lucide="book-open" class="w-5 h-5 text-nova-accent"></i>
+                        </h3>
+                        <p class="text-nova-600 text-sm leading-relaxed mb-6">
+                            We believe that internal engineering knowledge is foundational infrastructure. We maintain rigorous documentation, architecture decision records (ADRs), and standardized specifications to ensure reproducibility and clarity across every project.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-nova-100 text-xs font-mono">
+                            <div class="p-3 bg-nova-50 rounded-xl">
+                                <span class="block text-nova-400">STANDARDS</span>
+                                <span class="font-bold text-nova-900">Rigorous Documentation</span>
+                            </div>
+                            <div class="p-3 bg-nova-50 rounded-xl">
+                                <span class="block text-nova-400">PRACTICE</span>
+                                <span class="font-bold text-nova-900">Architecture Records</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="py-28 px-6 bg-white border-b border-nova-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-mono tracking-widest text-nova-500 uppercase block mb-3">08 / FUTURE ROADMAP</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-nova-950 mb-4">The Evolution of NOVA</h2>
+                    <p class="text-nova-600 text-lg">Our strategic direction focuses on systematic growth, expanding AI capabilities, and connecting software intelligence with physical systems.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">2026 — STAGE 01</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">FOUNDATION</h3>
+                        <p class="text-nova-600 text-sm">Establish organizational structure, multidisciplinary team roles, and core engineering principles.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">2026 — STAGE 02</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">PLATFORM</h3>
+                        <p class="text-nova-600 text-sm">Develop structured internal engineering infrastructure, design systems, and documentation standards.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">2026+ — STAGE 03</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">INTELLIGENCE</h3>
+                        <p class="text-nova-600 text-sm">Expand AI, machine learning, and multi-agent system capabilities across engineering domains.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">FUTURE — STAGE 04</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">INTEGRATION</h3>
+                        <p class="text-nova-600 text-sm">Connect software intelligence with electronics, embedded systems, and automated hardware.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">FUTURE — STAGE 05</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">AUTOMATION</h3>
+                        <p class="text-nova-600 text-sm">Expand intelligent automation workflows and connected system architectures.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-nova-50 border border-nova-200">
+                        <span class="font-mono text-xs text-nova-accent font-bold mb-2 block">FUTURE — STAGE 06</span>
+                        <h3 class="text-xl font-bold text-nova-950 mb-2">ECOSYSTEM</h3>
+                        <p class="text-nova-600 text-sm">Develop a broader interconnected engineering ecosystem for collaborative research and innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-28 px-6 bg-nova-950 text-white">
+            <div class="max-w-5xl mx-auto text-center">
+                <span class="text-xs font-mono tracking-widest text-nova-400 uppercase block mb-3">CONNECT WITH NOVA</span>
+                <h2 class="text-3xl sm:text-5xl font-bold tracking-tight mb-6">Build the Future With Us.</h2>
+                <p class="text-nova-300 text-lg max-w-2xl mx-auto mb-10">
+                    We believe the next generation of technology will be built by people willing to learn, experiment, engineer, collaborate, and think beyond conventional boundaries.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="mailto:contact@novaengineeringlabs.org" class="px-8 py-4 rounded-full bg-white text-nova-950 font-semibold text-sm tracking-wider uppercase hover:bg-nova-100 transition-all shadow-md">
+                        Get In Touch
+                    </a>
+                    <a href="#about" class="px-8 py-4 rounded-full bg-nova-900 border border-nova-800 text-white font-semibold text-sm tracking-wider uppercase hover:border-nova-600 transition-all">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-nova-950 text-nova-400 py-16 px-6 border-t border-nova-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-lg bg-white text-nova-950 flex items-center justify-center font-mono font-bold text-base">N</div>
+                    <span class="font-bold text-white text-base">NOVA Engineering Labs</span>
+                </div>
+                <p class="text-sm text-nova-400 max-w-sm mb-6">
+                    Engineering Intelligence. Building What Comes Next. A multidisciplinary engineering organization exploring software, AI, electronics, and automation.
+                </p>
+            </div>
+            <div>
+                <span class="text-xs font-mono text-white uppercase tracking-wider block mb-4">Navigation</span>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                    <li><a href="#engineering" class="hover:text-white transition-colors">Engineering</a></li>
+                    <li><a href="#people" class="hover:text-white transition-colors">Team</a></li>
+                    <li><a href="#culture" class="hover:text-white transition-colors">Culture</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="text-xs font-mono text-white uppercase tracking-wider block mb-4">Organization</span>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#research" class="hover:text-white transition-colors">Research</a></li>
+                    <li><a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a></li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Connect</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-nova-900 flex flex-col sm:flex-row items-center justify-between text-xs font-mono">
+            <span>&copy; 2026 NOVA Engineering Labs. All rights reserved.</span>
+            <span class="mt-4 sm:mt-0">Engineering Intelligence • Building What Comes Next</span>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Interactive Acronym Logic
+        const acronymData = {
+            'N': {
+                title: 'Next-Generation',
+                desc: 'Engineering beyond conventional approaches. Building robust systems designed for future scalability, performance, and technological resilience.'
+            },
+            'O': {
+                title: 'Omniscient',
+                desc: 'Connecting knowledge, context, intelligence, and systems. Creating unified visibility and holistic intelligence across multidisciplinary domains.'
+            },
+            'V': {
+                title: 'Virtual',
+                desc: 'Software-driven intelligence capable of operating across digital environments, cloud architectures, and distributed computing networks.'
+            },
+            'A': {
+                title: 'Assistant',
+                desc: 'Technology designed to extend human capability, enhance operational workflows, and empower intelligent decision-making.'
+            }
+        };
+
+        function setAcronym(letter) {
+            ['N', 'O', 'V', 'A'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if (l === letter) {
+                    btn.className = "acronym-btn p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white text-left transition-all";
+                    btn.querySelector('span:last-child').className = "text-xs font-medium tracking-wide text-nova-300";
+                } else {
+                    btn.className = "acronym-btn p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-900 text-left transition-all hover:border-nova-400";
+                    btn.querySelector('span:last-child').className = "text-xs font-medium tracking-wide text-nova-500";
+                }
+            });
+
+            const data = acronymData[letter];
+            document.getElementById('acronym-title').innerText = data.title;
+            document.getElementById('acronym-desc').innerText = data.desc;
+        }
+
+        // Domain Explorer Data & Logic
+        const domainData = {
+            'ai': {
+                badge: 'AI & MACHINE LEARNING',
+                title: 'Artificial Intelligence & Intelligent Agents',
+                desc: 'Exploring generative AI models, multi-agent frameworks, machine learning algorithms, and intelligent automation to build software capable of complex reasoning and context-aware execution.',
+                tags: ['Generative AI', 'AI Agents', 'Machine Learning', 'Deep Learning', 'Intelligent Automation']
+            },
+            'software': {
+                badge: 'SOFTWARE ENGINEERING',
+                title: 'Software & System Architecture',
+                desc: 'Designing and implementing scalable backend systems, robust database architectures, modern frontend applications, and high-performance APIs.',
+                tags: ['System Architecture', 'Frontend Engineering', 'Backend Engineering', 'API Engineering', 'Platform Development']
+            },
+            'electronics': {
+                badge: 'ELECTRONICS & EMBEDDED SYSTEMS',
+                title: 'Electronics & Embedded Systems',
+                desc: 'Exploring embedded computing, microcontrollers, hardware integration, sensors, and intelligent physical devices connecting software with hardware.',
+                tags: ['Embedded Computing', 'Sensors', 'Microcontrollers', 'Hardware Integration', 'Intelligent Devices']
+            },
+            'automation': {
+                badge: 'AUTOMATION & SYSTEMS',
+                title: 'Automation & Connected Systems',
+                desc: 'Building intelligent workflows, connected systems, human-machine interaction protocols, and automated operational processes.',
+                tags: ['Intelligent Workflows', 'Connected Systems', 'Human-Machine Interaction', 'Automated Processes']
+            },
+            'intelligence': {
+                badge: 'ENGINEERING INTELLIGENCE',
+                title: 'Engineering Intelligence & Validation',
+                desc: 'Establishing rigorous architecture standards, comprehensive validation, security practices, optimization, and technical documentation.',
+                tags: ['Architecture', 'Validation', 'Testing', 'Security', 'Optimization', 'Documentation']
+            }
+        };
+
+        function selectDomain(domainKey) {
+            ['ai', 'software', 'electronics', 'automation', 'intelligence'].forEach(d => {
+                const btn = document.getElementById(`dom-btn-${d}`);
+                if (d === domainKey) {
+                    btn.className = "w-full text-left p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white transition-all flex items-center justify-between group";
+                    btn.querySelector('span.font-mono').className = "font-mono text-xs text-nova-300 block mb-1";
+                    btn.querySelector('i').className = "w-5 h-5 text-white";
+                } else {
+                    btn.className = "w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group";
+                    btn.querySelector('span.font-mono').className = "font-mono text-xs text-nova-400 block mb-1";
+                    btn.querySelector('i').className = "w-5 h-5 text-nova-400 group-hover:text-nova-900";
+                }
+            });
+
+            const data = domainData[domainKey];
+            document.getElementById('domain-badge').innerText = data.badge;
+            document.getElementById('domain-title').innerText = data.title;
+            document.getElementById('domain-desc').innerText = data.desc;
+            
+            const tagsContainer = document.getElementById('domain-tags');
+            tagsContainer.innerHTML = '';
+            data.tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = "px-3 py-1.5 rounded-xl bg-white border border-nova-200 text-nova-800 text-xs font-medium";
+                span.innerText = tag;
+                tagsContainer.appendChild(span);
+            });
+        }
+
+        // Structured Team Data with profile picture placeholders, roles, descriptions, and direct social links (LinkedIn, Instagram, Email)
+        const teamMembers = [
+            {
+                name: 'Cindhe Sai Mukesh',
+                role: 'Architecture • Frontend • Project Coordination',
+                bio: 'Responsible for overall technical architecture, frontend direction, system-level coordination, engineering alignment, technical planning, and cross-discipline collaboration.',
+                image: '', // Professional Neutral Placeholder Initials Generated Dynamically
+                links: {
+                    linkedin: 'https://linkedin.com',
+                    instagram: 'https://instagram.com',
+                    email: 'mailto:cindhe@novaengineeringlabs.org'
+                }
+            },
+            {
+                name: 'Shanmukha Priya',
+                role: 'Backend • Database Engineering',
+                bio: 'Focuses on robust backend architecture, database systems, APIs, server-side engineering, data management, and seamless backend integration.',
+                image: '',
+                links: {
+                    linkedin: 'https://linkedin.com',
+                    instagram: 'https://instagram.com',
+                    email: 'mailto:shanmukha@novaengineeringlabs.org'
+                }
+            },
+            {
+                name: 'Swathi',
+                role: 'DevOps • Security • Quality Assurance',
+                bio: 'Focuses on deployment infrastructure, security practices, rigorous system testing, quality assurance, and reliability engineering.',
+                image: '',
+                links: {
+                    linkedin: 'https://linkedin.com',
+                    instagram: 'https://instagram.com',
+                    email: 'mailto:swathi@novaengineeringlabs.org'
+                }
+            },
+            {
+                name: 'Hemanth',
+                role: 'Documentation • Technical Program Management',
+                bio: 'Focuses on comprehensive technical documentation, engineering coordination, process structure, program organization, and knowledge management.',
+                image: '',
+                links: {
+                    linkedin: 'https://linkedin.com',
+                    instagram: 'https://instagram.com',
+                    email: 'mailto:hemanth@novaengineeringlabs.org'
+                }
+            },
+            {
+                name: 'Jayalakshmi',
+                role: 'Frontend UI/UX • Design Systems • Visual Engineering',
+                bio: 'Establishes the visual and UX foundation that frontend implementation follows consistently, ensuring interface cohesion and elegant user experience.',
+                image: '',
+                links: {
+                    linkedin: 'https://linkedin.com',
+                    instagram: 'https://instagram.com',
+                    email: 'mailto:jayalakshmi@novaengineeringlabs.org'
+                }
+            }
+        ];
+
+        // Render Dedicated Team Section Cards Dynamically
+        const teamGrid = document.getElementById('team-grid');
+        teamMembers.forEach(member => {
+            const card = document.createElement('div');
+            card.className = "p-8 rounded-3xl bg-white border border-nova-200 hover:border-nova-900 transition-all duration-300 flex flex-col justify-between shadow-sm";
+
+            card.innerHTML = `
+                <div>
+                    <div class="w-20 h-20 rounded-2xl bg-nova-100 border border-nova-200 flex items-center justify-center font-mono font-bold text-xl text-nova-700 mb-6 overflow-hidden shadow-inner">
+                        ${member.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <span class="text-xs font-mono text-nova-accent font-semibold uppercase tracking-wider block mb-1">${member.role}</span>
+                    <h3 class="text-xl font-bold text-nova-950 mb-3">${member.name}</h3>
+                    <p class="text-nova-600 text-sm leading-relaxed mb-6">${member.bio}</p>
+                </div>
+                <div class="pt-4 border-t border-nova-100 flex items-center gap-3">
+                    <a href="${member.links.linkedin}" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-nova-50 text-nova-800 hover:bg-nova-900 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                    <a href="${member.links.instagram}" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-nova-50 text-nova-800 hover:bg-nova-900 hover:text-white transition-colors" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="${member.links.email}" class="p-2 rounded-xl bg-nova-50 text-nova-800 hover:bg-nova-900 hover:text-white transition-colors" aria-label="Email">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            `;
+            teamGrid.appendChild(card);
+        });
+
+        // Re-initialize icons for newly inserted DOM elements
+        lucide.createIcons();
+    </script>
+</body>
+</html>
