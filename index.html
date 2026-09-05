@@ -998,7 +998,11 @@
             card.innerHTML = `
                 <div>
                     <div class="w-20 h-20 rounded-2xl bg-nova-100 border border-nova-200 flex items-center justify-center font-mono font-bold text-xl text-nova-700 mb-6 overflow-hidden shadow-inner">
-                        ${member.name.split(' ').map(n => n[0]).join('')}
+                        ${member.image
+                            ? `<img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover">`
+                            : member.name.split(' ').map(n => n[0]).join('')
+                        }
+                </div>
                     </div>
                     <span class="text-xs font-mono text-nova-accent font-semibold uppercase tracking-wider block mb-1">${member.role}</span>
                     <h3 class="text-xl font-bold text-nova-950 mb-3">${member.name}</h3>
