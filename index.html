@@ -393,7 +393,7 @@
                         </h2>
                     </div>
                     <div class="pt-6 border-t border-nova-800 font-mono text-xs text-nova-400 flex items-center gap-2">
-                        <i data-lucide="eye" class="w-4 h-4 text-nova-accent"><span>Future-Oriented Engineering</span></i>
+                        <i data-lucide="eye" class="w-4 h-4 text-nova-accent"></i><span>Future-Oriented Engineering</span>
                     </div>
                 </div>
 
@@ -429,7 +429,7 @@
                                 <span class="font-mono text-xs text-nova-300 block mb-1">DOMAIN 01</span>
                                 <span class="font-bold text-lg">Artificial Intelligence</span>
                             </div>
-                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-white"></i>
                         </button>
                         
                         <button onclick="selectDomain('software')" id="dom-btn-software" class="w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group">
@@ -614,7 +614,7 @@
                 </div>
 
                 <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -867,7 +867,7 @@
             document.getElementById('acronym-desc').innerText = data.desc;
         }
 
-        // Domain Explorer Data & Logic
+        // Domain Explorer Data & Logic (Ensuring full interactivity and proper state switching)
         const domainData = {
             'ai': {
                 badge: 'AI & MACHINE LEARNING',
@@ -907,11 +907,17 @@
                 if (d === domainKey) {
                     btn.className = "w-full text-left p-6 rounded-2xl border-2 border-nova-900 bg-nova-900 text-white transition-all flex items-center justify-between group";
                     btn.querySelector('span.font-mono').className = "font-mono text-xs text-nova-300 block mb-1";
-                    btn.querySelector('i').className = "w-5 h-5 text-white";
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.className = "w-5 h-5 text-white";
+                    }
                 } else {
                     btn.className = "w-full text-left p-6 rounded-2xl border-2 border-nova-200 bg-white text-nova-950 transition-all flex items-center justify-between hover:border-nova-400 group";
                     btn.querySelector('span.font-mono').className = "font-mono text-xs text-nova-400 block mb-1";
-                    btn.querySelector('i').className = "w-5 h-5 text-nova-400 group-hover:text-nova-900";
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.className = "w-5 h-5 text-nova-400 group-hover:text-nova-900";
+                    }
                 }
             });
 
@@ -930,17 +936,26 @@
             });
         }
 
-        // Structured Team Data with profile picture placeholders, roles, descriptions, and direct social links (LinkedIn, Instagram, Email)
+        // Quick bridge helper for About Section scope cards linking directly into domain selector
+        function setActiveDomainInfo(domainKey) {
+            selectDomain(domainKey);
+            const engineeringSection = document.getElementById('engineering');
+            if (engineeringSection) {
+                engineeringSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Structured Team Data with profile picture placeholders, roles, descriptions, and direct social links
         const teamMembers = [
             {
                 name: 'Cindhe Sai Mukesh',
                 role: 'Architecture • Frontend • Project Coordination',
                 bio: 'Responsible for overall technical architecture, frontend direction, system-level coordination, engineering alignment, technical planning, and cross-discipline collaboration.',
-                image: 'assets/team/mukesh.png', // Professional Neutral Placeholder Initials Generated Dynamically
+                image: 'assets/team/mukesh.png',
                 links: {
                     linkedin: 'https://www.linkedin.com/in/cindhe-sai-mukesh-rao-9a57a53ba/',
                     instagram: 'https://www.instagram.com/saimukesh_17/',
-                    email: 'saimukeshraocindhe@gmail.com'
+                    email: 'mailto:saimukeshraocindhe@gmail.com'
                 }
             },
             {
@@ -999,10 +1014,9 @@
                 <div>
                     <div class="w-20 h-20 rounded-2xl bg-nova-100 border border-nova-200 flex items-center justify-center font-mono font-bold text-xl text-nova-700 mb-6 overflow-hidden shadow-inner">
                         ${member.image
-                            ? `<img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover">`
+                            ? `<img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover" onerror="this.replaceWith(document.createTextNode('${member.name.split(' ').map(n => n[0]).join('')}'))">`
                             : member.name.split(' ').map(n => n[0]).join('')
                         }
-                </div>
                     </div>
                     <span class="text-xs font-mono text-nova-accent font-semibold uppercase tracking-wider block mb-1">${member.role}</span>
                     <h3 class="text-xl font-bold text-nova-950 mb-3">${member.name}</h3>
